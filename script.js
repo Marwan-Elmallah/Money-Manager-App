@@ -7,7 +7,8 @@ async function fetchActions() {
     const response = await fetch(`${API_BASE_URL}/actions`);
     const data = await response.json();
     renderActions(data);
-  } catch (error) {
+  } catch (error) 
+    alert("error to get actions")
     console.error("Error fetching actions:", error);
   }
 }
