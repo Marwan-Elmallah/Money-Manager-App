@@ -1,10 +1,19 @@
 const API_BASE_URL = "https://wedata.onrender.com"; // Replace with your actual backend URL
 
-// Show/hide sections based on authentication
-function showSection(section) {
-  document.getElementById("loginSection").style.display = section === "login" ? "block" : "none";
-  document.getElementById("registerSection").style.display = section === "register" ? "block" : "none";
-  document.getElementById("actionsSection").style.display = section === "actions" ? "block" : "none";
+function navigateTo(route) {
+  const token = localStorage.getItem("token");
+  
+  if (route === "actions" && !token) {
+    alert("You must log in to access this page.");
+    return;
+  }
+
+  // Show only the target section
+  document.querySelectorAll(".section").forEach((section) => {
+    section.style.display = "none";
+  });
+
+  document.getElementById(`${route}Section`).style.display = "block";
 }
 
 // Login function
@@ -22,7 +31,7 @@ async function login() {
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem("token", data.token); // Store token
-      showSection("actions");
+      navigateTo("actions");
       fetchActions();
     } else {
       alert("Login failed!");
@@ -47,7 +56,7 @@ async function register() {
 
     if (response.ok) {
       alert("Registration successful! Please log in.");
-      showSection("login");
+      navigateTo("login");
     } else {
       alert("Registration failed!");
     }
@@ -56,7 +65,7 @@ async function register() {
   }
 }
 
-// Fetch actions function (authenticated)
+// Fetch actions function
 async function fetchActions() {
   try {
     const token = localStorage.getItem("token");
@@ -75,7 +84,7 @@ async function fetchActions() {
   }
 }
 
-// Add new action function (authenticated)
+// Add new action function
 async function addAction() {
   const actionType = document.getElementById("actionType").value;
   const amount = document.getElementById("amount").value;
@@ -106,12 +115,12 @@ function renderActions(actions) {
   const actionsList = document.getElementById("actionsList");
   actionsList.innerHTML = "";
 
-  actions.forEach(action => {
+  actions.forEach((action) => {
     const li = document.createElement("li");
     li.textContent = `${action.type}: $${action.amount}`;
     actionsList.appendChild(li);
   });
 }
 
-// Show login section on page load
-showSection("login");
+// Default navigation to login on page load
+navigateTo("login");
