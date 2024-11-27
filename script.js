@@ -37,6 +37,7 @@ async function login() {
       alert("Login failed!");
     }
   } catch (error) {
+    alert("error to login")
     console.error("Login error:", error);
   }
 }
@@ -61,6 +62,7 @@ async function register() {
       alert("Registration failed!");
     }
   } catch (error) {
+    alert("error to register")
     console.error("Registration error:", error);
   }
 }
@@ -80,6 +82,7 @@ async function fetchActions() {
       alert("Failed to fetch actions!");
     }
   } catch (error) {
+    alert("error to get actions")
     console.error("Fetch actions error:", error);
   }
 }
@@ -106,6 +109,7 @@ async function addAction() {
       alert("Failed to add action!");
     }
   } catch (error) {
+    alert("error to add actions")
     console.error("Add action error:", error);
   }
 }
