@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money Manager App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Money Manager App</h1>
+  <p>Track your daily income, expenses, and transfers.</p>
+
+  <!-- Section for adding actions -->
+  <div>
+    <input type="text" id="actionType" placeholder="Type (Income/Expense/Transfer)" />
+    <input type="number" id="amount" placeholder="Amount" />
+    <button onclick="addAction()">Add Action</button>
+  </div>
+
+  <!-- Section to display actions -->
+  <h2>Actions</h2>
+  <ul id="actionsList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
