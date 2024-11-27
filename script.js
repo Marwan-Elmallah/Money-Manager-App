@@ -22,7 +22,7 @@ async function login() {
   const password = document.getElementById("loginPassword").value;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
@@ -48,7 +48,7 @@ async function register() {
   const password = document.getElementById("registerPassword").value;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/register`, {
+    const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password })
@@ -69,7 +69,7 @@ async function register() {
 async function fetchActions() {
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch(`${API_BASE_URL}/actions`, {
+    const response = await fetch(`${API_BASE_URL}/api/actions`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -91,7 +91,7 @@ async function addAction() {
 
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch(`${API_BASE_URL}/actions`, {
+    const response = await fetch(`${API_BASE_URL}/api/actions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
