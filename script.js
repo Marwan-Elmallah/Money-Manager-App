@@ -1,5 +1,5 @@
 // Base URL for your API
-const API_BASE_URL = "https://your-backend-api.com"; // Replace with your actual backend URL
+const API_BASE_URL = "https://wedata.onrender.com"; // Replace with your actual backend URL
 
 // Function to fetch actions from the API
 async function fetchActions() {
