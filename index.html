@@ -7,10 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav>
+    <button onclick="navigateTo('login')">Login</button>
+    <button onclick="navigateTo('register')">Register</button>
+    <button onclick="navigateTo('actions')">Add Actions</button>
+  </nav>
+
   <h1>Money Manager App</h1>
 
   <!-- Login Form -->
-  <div id="loginSection">
+  <div id="loginSection" class="section">
     <h2>Login</h2>
     <input type="text" id="loginEmail" placeholder="Email" />
     <input type="password" id="loginPassword" placeholder="Password" />
@@ -18,7 +24,7 @@
   </div>
 
   <!-- Register Form -->
-  <div id="registerSection">
+  <div id="registerSection" class="section">
     <h2>Register</h2>
     <input type="text" id="registerName" placeholder="Name" />
     <input type="text" id="registerEmail" placeholder="Email" />
@@ -27,7 +33,7 @@
   </div>
 
   <!-- Money Manager Actions -->
-  <div id="actionsSection" style="display: none;">
+  <div id="actionsSection" class="section" style="display: none;">
     <h2>Add Action</h2>
     <input type="text" id="actionType" placeholder="Type (Income/Expense/Transfer)" />
     <input type="number" id="amount" placeholder="Amount" />
